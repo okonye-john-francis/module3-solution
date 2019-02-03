@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NarrowItDownApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant App</title>
+</head>
+<body>
+  <div class="container">
+    <header class="row">
+      <div class="col-md-12">
+        <h1>Narrow It Down Restaurant Menu Search Application</h1>
+      </div>
+    </header>
+
+    <div ng-controller="NarrowItDownController as search">
+        <div>
+          <h2>Search menu</h2>
+          <p>
+            <input type="text" id="searchFor" ng-model="search.search_item" placeholder="Enter search string e.g chicken" />
+          </p>
+          <p>
+            <button ng-click="search.search()">Narrow It Down For Me!</button>
+          </p>
+        </div>
+
+      <div>
+        <found-items 
+          title="Items found" 
+          list="search.found" 
+          result="{{ search.search_results }}" 
+          dont-want="search.dontWant(index)"></found-items>
+      </div>
+
+  </div>
+
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    $(function() { $("input").focus(); })
+  </script>
+</body>
+</html>

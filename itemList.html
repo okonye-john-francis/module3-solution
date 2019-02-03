@@ -1,0 +1,9 @@
+<h2>{{ title }}</h2>
+<ul>
+  <li ng-repeat="item in list">
+    <button
+            ng-click='dontWant({ index: $index });'>Don't want this one!</button>
+      {{ item.name }}, <b>[{{ item.short_name }}]</b>, Content: {{ item.description }}
+  </li>
+</ul>
+<div>{{ result }}</div>
